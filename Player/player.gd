@@ -5,7 +5,7 @@ class_name Player
 signal healthChanged
 
 @export var speed: int = 35
-@export var run_speed: int = 70
+@export var run_speed: int = 52.5
 @onready var animations = $AnimationPlayer
 @onready var effects = $Effects
 @onready var hurtBox = $hurtBox
@@ -31,13 +31,12 @@ func handleInput():
 	var moveDirection = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	
 	
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_pressed("attack"):
 		attack()
 	
-	if Input.is_action_just_pressed("run") == true:
-		print("true")
+	if Input.is_action_pressed("run"):
 		velocity = moveDirection * run_speed
-	elif Input.is_action_just_pressed("run") != true:
+	else:
 		velocity = moveDirection * speed
 
 
