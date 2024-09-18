@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_4l28c"]
 [ext_resource type="Resource" uid="uid://b0b1y7ivoq17s" path="res://Inventory/playerInventory.tres" id="2_bfgy5"]
-[ext_resource type="Texture2D" uid="uid://14e7revdbmp2" path="res://Art/SpriteSheet.png" id="2_u8ste"]
 [ext_resource type="Script" path="res://Player/weapon.gd" id="3_i7edq"]
 [ext_resource type="PackedScene" uid="uid://dww8lgd4qim33" path="res://Player/sword.tscn" id="4_ykcen"]
+[ext_resource type="Texture2D" uid="uid://cnorq211rfqf1" path="res://Knight/SpriteSheet.png" id="5_8vbql"]
 
 [sub_resource type="Animation" id="Animation_tuyvn"]
 length = 0.001
@@ -368,7 +368,7 @@ script = ExtResource("3_i7edq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 clip_children = 2
-texture = ExtResource("2_u8ste")
+texture = ExtResource("5_8vbql")
 offset = Vector2(0, -8)
 hframes = 4
 vframes = 7
