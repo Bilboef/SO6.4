@@ -1383,5 +1383,8 @@ stream = ExtResource("14_l8xov")
 volume_db = -20.0
 autoplay = true
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(2, 0, 753, 0, 752, 322, -1, 321, 0, 1, -49, 43, -63, 379, 331, 402, 827, 394, 852, 183, 809, -52, 430, -86, 78, -73, -42, -68, 0, -2)
+
 [connection signal="closed" from="CanvasLayer/InventoryGUI" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="CanvasLayer/InventoryGUI" to="." method="_on_inventory_gui_opened"]
