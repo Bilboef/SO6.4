@@ -1318,6 +1318,9 @@ layer_2/tile_data = PackedInt32Array(458753, 1, 0, 131085, 1, 0, 458763, 1, 0, 1
 layer_3/name = "Collectables"
 layer_3/tile_data = PackedInt32Array(458755, 3, 65536, 524325, 3, 131072, 1114156, 3, 65536, 1179651, 3, 65536, 589850, 3, 65536, 786463, 3, 65536)
 
+[node name="Enemy" parent="TileMap" instance=ExtResource("14_u7f4j")]
+position = Vector2(199, 52)
+
 [node name="Slime" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("4_ifm3y")]
 position = Vector2(87, 39)
 endPoint = NodePath("Marker2D")
@@ -1378,9 +1381,6 @@ offset_right = 66.5
 offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Enemy" parent="." instance=ExtResource("14_u7f4j")]
-position = Vector2(199, 52)
 
 [connection signal="closed" from="CanvasLayer/InventoryGUI" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="CanvasLayer/InventoryGUI" to="." method="_on_inventory_gui_opened"]

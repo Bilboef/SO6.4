@@ -154,9 +154,11 @@ animations = [{
 radius = 52.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxdve"]
-size = Vector2(16, 16)
+size = Vector2(11, 12)
 
 [node name="Enemy" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_pt83w")
 
