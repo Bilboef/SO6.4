@@ -884,7 +884,7 @@ layer_2/tile_data = PackedInt32Array(196613, 1179649, 0, 917511, 1179649, 0, 524
 position = Vector2(576, 229)
 
 [node name="any" type="Marker2D" parent="EntranceMarkers"]
-position = Vector2(6, 13)
+position = Vector2(5, 11)
 
 [node name="SceneTrigger" parent="." instance=ExtResource("4_ivkv1")]
 position = Vector2(601, 224)
@@ -895,6 +895,3 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(3, -0.25)
 shape = SubResource("RectangleShape2D_iabnv")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(480, 203)

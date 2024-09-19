@@ -1,7 +1,7 @@
 extends BaseScene
 
 @onready var heartsContainer = $CanvasLayer/heartsContainer
-@onready var camera = $follow_cam
+@onready var camera = $Player/follow_cam
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
