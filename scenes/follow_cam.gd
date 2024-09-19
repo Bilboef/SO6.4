@@ -8,6 +8,7 @@ func _ready() -> void:
 	if tilemap == null:
 		tilemap = $TileMap  # Erstat $TileMap med den korrekte sti til din TileMap node
 
+
 	if tilemap != null:
 		var mapRect = tilemap.get_used_rect()
 		var tileSize = tilemap.rendering_quadrant_size
@@ -20,4 +21,4 @@ func _ready() -> void:
 		print("Tilemap er ikke tildelt!")
 
 func _process(delta: float) -> void:
-	global_position = follow_node.global_position
+		global_position = follow_node.global_position
