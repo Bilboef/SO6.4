@@ -4,7 +4,6 @@ extends TextureProgressBar
 
 
 func _input(event):
-	print('health ch')
 	panda.healthChanged
 	update()
 
