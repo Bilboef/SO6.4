@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfggtritg2r6s"]
+[gd_scene load_steps=11 format=3 uid="uid://bfggtritg2r6s"]
 
-[ext_resource type="Texture2D" uid="uid://dpmbtn3e7y0bf" path="res://Art/TilesetReliefDetail.png" id="1_jeuee"]
-[ext_resource type="Texture2D" uid="uid://ocmm63e1gfq6" path="res://Art/TilesetHole.png" id="2_efkp6"]
-[ext_resource type="Texture2D" uid="uid://crhm3b4a8yoxh" path="res://Art/TilesetElement.png" id="3_vbkjd"]
+[ext_resource type="Script" path="res://scenes/base_scene.gd" id="1_6ch6n"]
+[ext_resource type="Texture2D" uid="uid://dpmbtn3e7y0bf" path="res://Art/TilesetReliefDetail.png" id="1_yb2at"]
+[ext_resource type="Texture2D" uid="uid://ocmm63e1gfq6" path="res://Art/TilesetHole.png" id="2_m6l72"]
+[ext_resource type="Texture2D" uid="uid://crhm3b4a8yoxh" path="res://Art/TilesetElement.png" id="3_361r4"]
+[ext_resource type="PackedScene" uid="uid://bw62b02aemesd" path="res://scenes/scene_trigger.tscn" id="5_y6pmg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mxbis"]
-texture = ExtResource("1_jeuee")
+texture = ExtResource("1_yb2at")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -59,7 +61,7 @@ texture = ExtResource("1_jeuee")
 5:9/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2vf0a"]
-texture = ExtResource("2_efkp6")
+texture = ExtResource("2_m6l72")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.25, -5, -0.25, -6, 9, -8, 8)
 1:0/0 = 0
@@ -117,7 +119,7 @@ texture = ExtResource("2_efkp6")
 8:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5th66"]
-texture = ExtResource("3_vbkjd")
+texture = ExtResource("3_361r4")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -133,6 +135,7 @@ texture = ExtResource("3_vbkjd")
 12:0/0 = 0
 13:0/0 = 0
 14:0/0 = 0
+14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.75, 8, -5.5, 8, 8, -8, 8)
 15:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
@@ -210,6 +213,7 @@ texture = ExtResource("3_vbkjd")
 6:7/0 = 0
 7:7/0 = 0
 8:7/0 = 0
+8:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:7/0 = 0
 10:7/0 = 0
 11:7/0 = 0
@@ -222,7 +226,9 @@ texture = ExtResource("3_vbkjd")
 6:8/0 = 0
 7:8/0 = 0
 8:8/0 = 0
+8:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:8/0 = 0
+9:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:8/0 = 0
 11:8/0 = 0
 0:9/0 = 0
@@ -271,7 +277,11 @@ sources/0 = SubResource("TileSetAtlasSource_mxbis")
 sources/1 = SubResource("TileSetAtlasSource_2vf0a")
 sources/3 = SubResource("TileSetAtlasSource_5th66")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fyw7"]
+size = Vector2(9, 9)
+
 [node name="Starter_cave" type="Node2D"]
+script = ExtResource("1_6ch6n")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -287,3 +297,18 @@ layer_2/name = "buildings"
 layer_2/y_sort_enabled = true
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(131072, 65536, 3)
+
+[node name="EntranceMarkers" type="Node2D" parent="."]
+
+[node name="any" type="Marker2D" parent="EntranceMarkers"]
+position = Vector2(28, 48)
+
+[node name="SceneTrigger" parent="." instance=ExtResource("5_y6pmg")]
+position = Vector2(7, 39)
+connected_scene = "world"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-2.5, 1.5)
+shape = SubResource("RectangleShape2D_1fyw7")

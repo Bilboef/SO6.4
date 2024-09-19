@@ -356,6 +356,7 @@ _data = {
 z_index = 1
 y_sort_enabled = true
 texture_filter = 1
+collision_layer = 9
 script = ExtResource("1_4l28c")
 inventory = ExtResource("2_bfgy5")
 

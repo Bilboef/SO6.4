@@ -1,6 +1,7 @@
 extends Camera2D
 
 @export var tilemap: TileMap 
+@export var follow_node: Node2D
 
 func _ready() -> void:
 	# Hvis tilemap ikke er tildelt, find den som et barn
@@ -19,4 +20,4 @@ func _ready() -> void:
 		print("Tilemap er ikke tildelt!")
 
 func _process(delta: float) -> void:
-	pass
+	global_position = follow_node.global_position
