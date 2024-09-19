@@ -1,0 +1,19 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://b07bg1picwl60"]
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_ied5y"]
+resource_name = "PitchShift"
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_0vjh8"]
+resource_name = "Compressor"
+
+[resource]
+bus/1/name = &"SFX"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectPitchShift_ied5y")
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectCompressor_0vjh8")
+bus/1/effect/1/enabled = true

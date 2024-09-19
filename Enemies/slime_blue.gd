@@ -14,6 +14,7 @@ signal healthChanged
 @onready var animations = $AnimationPlayer
 @onready var hurtTimer = $hurtTimer
 @onready var hideHurtBox = $hurtBox/CollisionShape2D
+@onready var slimedie = $AudioStreamPlayer_death 
 
 var startPosition
 var endPosition

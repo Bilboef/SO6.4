@@ -379,5 +379,8 @@ slime = NodePath("..")
 
 [node name="AudioStreamPlayer_death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_y76hu")
+volume_db = 1.01
+pitch_scale = 4.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
