@@ -1430,6 +1430,7 @@ offset_bottom = 25.0
 scale = Vector2(0.7, 0.7)
 text = "Score: 999"
 script = ExtResource("14_uvk0x")
+metadata/_edit_use_anchors_ = true
 
 [node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("8_7gsxx")]
 
