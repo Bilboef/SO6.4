@@ -5,8 +5,10 @@ var speed = 20
 var player_chase = false
 var player = null
 
+var isDead: bool = false
 
 func _physics_process(delta):
+	if isDead: return
 	if player_chase and player != null and player.has_method("get_position"):
 		#position += (player.position - position).normalized() * speed * delta
 		velocity = (player.position - position).normalized() * speed
@@ -34,3 +36,12 @@ func _on_detection_area_body_exited(body):
 		player = null
 		$AnimatedSprite2D.stop()
 		$AnimatedSprite2D.play("Default")
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if area == $hitBox: return
+	isDead = true
+	$AnimatedSprite2D.play("Death")
+	await animation_finished("Death")
+	queue_free()
+	

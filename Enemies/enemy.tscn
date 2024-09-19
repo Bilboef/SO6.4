@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://dagdyi6b1ww7t"]
+[gd_scene load_steps=32 format=3 uid="uid://dagdyi6b1ww7t"]
 
 [ext_resource type="Texture2D" uid="uid://hnipccdljp0s" path="res://Enemies/Monsters/Panda/SpriteSheet.png" id="1_nmbkb"]
 [ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_pt83w"]
+[ext_resource type="Texture2D" uid="uid://d23vbvb80oxdt" path="res://Art/smokesheet.png" id="3_a8qkl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6585d"]
 atlas = ExtResource("1_nmbkb")
@@ -18,6 +19,30 @@ region = Rect2(32, 32, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ko0j"]
 atlas = ExtResource("1_nmbkb")
 region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fulp"]
+atlas = ExtResource("3_a8qkl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4s0w"]
+atlas = ExtResource("3_a8qkl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpik1"]
+atlas = ExtResource("3_a8qkl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtdjr"]
+atlas = ExtResource("3_a8qkl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly6ia"]
+atlas = ExtResource("3_a8qkl")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oiir"]
+atlas = ExtResource("3_a8qkl")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_03m1n"]
 atlas = ExtResource("1_nmbkb")
@@ -92,6 +117,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3fulp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4s0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpik1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtdjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ly6ia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2oiir")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_03m1n")
 }],
 "loop": true,
@@ -153,18 +201,26 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_saixy"]
 radius = 52.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxdve"]
-size = Vector2(11, 12)
+[sub_resource type="CircleShape2D" id="CircleShape2D_asup0"]
+radius = 14.0357
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uio7o"]
+size = Vector2(17.5, 16.75)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_406oh"]
+radius = 12.0416
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
 texture_filter = 1
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_pt83w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n86oy")
-animation = &"Default"
+animation = &"Death"
 offset = Vector2(0, -8)
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -174,9 +230,26 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_saixy")
 
+[node name="hitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_asup0")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_mxdve")
+shape = SubResource("RectangleShape2D_uio7o")
+
+[node name="hurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_406oh")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]

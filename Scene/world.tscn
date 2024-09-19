@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://be43quqnwgl8g" path="res://GUI/hearts_container.tscn" id="8_7gsxx"]
 [ext_resource type="Script" path="res://GUI/canvas_layer.gd" id="11_chwpx"]
 [ext_resource type="PackedScene" uid="uid://ch2hpk8m4c5yv" path="res://GUI/inventory_gui.tscn" id="12_yciun"]
-[ext_resource type="PackedScene" path="res://Enemies/enemy.tscn" id="14_u7f4j"]
+[ext_resource type="PackedScene" uid="uid://dagdyi6b1ww7t" path="res://Enemies/enemy.tscn" id="14_u7f4j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vm0o0"]
 texture = ExtResource("2_knoby")
