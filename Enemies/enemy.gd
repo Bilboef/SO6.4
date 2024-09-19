@@ -1,23 +1,42 @@
 extends CharacterBody2D
 
+class_name EnemyPanda
 
+
+
+signal healthChanged
+
+
+ 
 var speed = 20
 var player_chase = false
 var player = null
 
 
-signal healthChanged
 
 @onready var animations = $AnimationPlayer
-@onready var maxHP = 2
+@onready var maxHP = 5
 @onready var currentHP = maxHP
+
 @export var endPoint: Marker2D
 @export var limit = 0.5
+@onready var hurtTimer = $hurtTimer
+@onready var hideHurtBox = $hurtBox/CollisionShape2D
+
 
 var startPosition
 var endPosition
 
+var isHurt: bool= false
 var isDead: bool = false
+
+
+func _ready():
+	startPosition = position
+	endPosition = endPoint.global_position
+	healthChanged.emit(currentHP)
+	
+
 
 func _physics_process(delta):
 	if isDead: return
@@ -52,18 +71,25 @@ func _on_detection_area_body_exited(body):
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area == $hitBox: return
-	isDead = true
-	animations.play("Death")
-	await animations.animation_finished
-	queue_free()
-
-
-
-func _ready():
-	startPosition = position
-	endPosition = endPoint.global_position
+	currentHP -= 1
 	healthChanged.emit(currentHP)
+	isHurt = true
+	if isHurt:
+		hurtTimer.start() 
+		await hurtTimer.timeout
+		isHurt = false
 	
+	if currentHP <= 0:
+		isHurt = false
+		$hitBox.set_deferred("monitorable", false)
+		isDead = true
+		animations.play("Death")
+		await animations.animation_finished
+		queue_free()
+
+
+
+
 
 func changeDirection():
 	var tempend = endPosition
