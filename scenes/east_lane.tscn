@@ -895,3 +895,6 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(3, -0.25)
 shape = SubResource("RectangleShape2D_iabnv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(480, 203)

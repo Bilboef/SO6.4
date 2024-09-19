@@ -2,10 +2,7 @@ extends CharacterBody2D
 
 class_name EnemyPanda
 
-
-
 signal healthChanged
-
 
  
 var speed = 20
