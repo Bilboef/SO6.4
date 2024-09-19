@@ -41,7 +41,8 @@ func _on_detection_area_body_exited(body):
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area == $hitBox: return
 	isDead = true
-	$AnimatedSprite2D.play("Death")
-	await animation_finished("Death")
 	queue_free()
+	$AnimatedSprite2D.play("Death")
+ 	#if $AnimatedSprite2D.animation_finished("Death"):
+		
 	
