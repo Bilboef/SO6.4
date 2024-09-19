@@ -88,6 +88,7 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if currentHP <= 0:
 		isHurt = false
 		Global.current_score += pointkill
+		
 		$hitBox.set_deferred("monitorable", false)
 		isDead = true
 		$Sprite.visible = false

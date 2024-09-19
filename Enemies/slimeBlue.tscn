@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dyqr8byc2tycl"]
+[gd_scene load_steps=18 format=3 uid="uid://dyqr8byc2tycl"]
 
 [ext_resource type="Script" path="res://Enemies/slime_blue.gd" id="1_1d6ns"]
 [ext_resource type="Texture2D" uid="uid://boyj826gnpkpd" path="res://Art/Slime.png" id="1_vi5ap"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b4f0wh30a735i" path="res://Art/healthbarUnder.png" id="4_r2xq7"]
 [ext_resource type="Texture2D" uid="uid://dhb3vexc316n" path="res://Art/healthbarProgress.png" id="5_6pek8"]
 [ext_resource type="Script" path="res://GUI/healthBar.gd" id="6_rnk17"]
+[ext_resource type="AudioStream" uid="uid://cwg0y13hyqsjt" path="res://Player/SFX/6381145484296192.wav" id="7_y76hu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_byphl"]
 radius = 4.0
@@ -375,5 +376,8 @@ texture_under = ExtResource("4_r2xq7")
 texture_progress = ExtResource("5_6pek8")
 script = ExtResource("6_rnk17")
 slime = NodePath("..")
+
+[node name="AudioStreamPlayer_death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_y76hu")
 
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
