@@ -41,7 +41,6 @@ func _physics_process(delta):
 		#position += (player.position - position).normalized() * speed * delta
 		velocity = (player.position - position).normalized() * speed
 
-		#print(velocity)
 		if player.position.x > position.x:
 			$AnimatedSprite2D.play("Right")
 		elif player.position.x < position.x:
@@ -49,6 +48,18 @@ func _physics_process(delta):
 			
 		move_and_slide()
 
+	if isHurt == true:
+		disable()
+	if isHurt == false:
+		enable()
+
+
+
+func enable():
+	hideHurtBox.disabled = false
+
+func disable():
+	hideHurtBox.disabled = true
 
 
 func _on_detection_area_body_entered(body: Node2D) -> void:

@@ -458,7 +458,7 @@ endPoint = NodePath("Marker2D")
 z_index = 2
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_n86oy")
-animation = &"Forward"
+animation = &"Default"
 offset = Vector2(0, -8)
 
 [node name="deathEffect" type="Sprite2D" parent="."]
