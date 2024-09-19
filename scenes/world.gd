@@ -14,6 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	update_score()
 	pass
 
 
@@ -23,3 +24,9 @@ func _on_inventory_gui_closed() -> void:
 
 func _on_inventory_gui_opened() -> void:
 	get_tree().paused = true
+
+func update_score():
+	Global.previous_score = Global.current_score
+	if Global.current_score > Global.high_score:
+		Global.high_score = Global.current_score
+	#Global.current_score = 0

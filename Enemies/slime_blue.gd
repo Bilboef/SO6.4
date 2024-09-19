@@ -7,6 +7,7 @@ signal healthChanged
 @export var speed = 20
 @export var limit = 0.5
 @export var endPoint: Marker2D
+@export var pointkill = 1
 
 @onready var maxHP = 2
 @onready var currentHP = maxHP
@@ -86,6 +87,7 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 	
 	if currentHP <= 0:
 		isHurt = false
+		Global.current_score += pointkill
 		$hitBox.set_deferred("monitorable", false)
 		isDead = true
 		$Sprite.visible = false
