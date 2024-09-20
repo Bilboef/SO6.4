@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0hb106u74m48"]
+[gd_scene load_steps=18 format=3 uid="uid://c0hb106u74m48"]
 
 [ext_resource type="Script" path="res://scenes/base_scene.gd" id="1_1x5nf"]
 [ext_resource type="Texture2D" uid="uid://bd5ue1idjlpj0" path="res://Art/TilesetFloor.png" id="2_mskaq"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://be43quqnwgl8g" path="res://GUI/hearts_container.tscn" id="7_2hhkh"]
 [ext_resource type="PackedScene" uid="uid://ch2hpk8m4c5yv" path="res://GUI/inventory_gui.tscn" id="8_15c8n"]
 [ext_resource type="PackedScene" uid="uid://dagdyi6b1ww7t" path="res://Enemies/enemy.tscn" id="9_hc5i3"]
+[ext_resource type="AudioStream" uid="uid://bqjx60o6popl4" path="res://Art/24 - Final Area.ogg" id="12_w1ich"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fxyge"]
 texture = ExtResource("2_mskaq")
@@ -987,3 +988,8 @@ offset_right = 66.5
 offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_w1ich")
+volume_db = -25.0
+autoplay = true

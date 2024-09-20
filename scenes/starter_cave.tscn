@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bfggtritg2r6s"]
+[gd_scene load_steps=16 format=3 uid="uid://bfggtritg2r6s"]
 
 [ext_resource type="Script" path="res://scenes/base_scene.gd" id="1_6ch6n"]
 [ext_resource type="Texture2D" uid="uid://dpmbtn3e7y0bf" path="res://Art/TilesetReliefDetail.png" id="1_yb2at"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scene/currentscore_label.gd" id="7_nfv8g"]
 [ext_resource type="PackedScene" uid="uid://be43quqnwgl8g" path="res://GUI/hearts_container.tscn" id="8_pn6jn"]
 [ext_resource type="PackedScene" uid="uid://ch2hpk8m4c5yv" path="res://GUI/inventory_gui.tscn" id="9_3w4aj"]
+[ext_resource type="AudioStream" uid="uid://44afg23jfq8k" path="res://Art/30 - Ruins.ogg" id="10_dn6fl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mxbis"]
 texture = ExtResource("1_yb2at")
@@ -346,3 +347,8 @@ offset_right = 66.5
 offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_dn6fl")
+volume_db = -25.0
+autoplay = true
