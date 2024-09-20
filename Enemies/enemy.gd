@@ -112,15 +112,3 @@ func updateVelocity():
 	if moveDirection.length() < limit:
 		changeDirection()
 	velocity = moveDirection.normalized()*speed	
-
-func updateAnimation():
-	if velocity.length()==0:
-		if animations.is_playing():
-			animations.stop()
-	else:
-		var direction = "Forward"
-		if velocity.x < 0: direction = "Left"
-		elif velocity.x > 0: direction = "Right"
-		elif velocity.y < 0: direction = "Back"
-	
-		animations.play("Forward" + direction)
