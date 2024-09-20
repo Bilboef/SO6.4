@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0hb106u74m48"]
+[gd_scene load_steps=17 format=3 uid="uid://c0hb106u74m48"]
 
 [ext_resource type="Script" path="res://scenes/base_scene.gd" id="1_1x5nf"]
 [ext_resource type="Texture2D" uid="uid://bd5ue1idjlpj0" path="res://Art/TilesetFloor.png" id="2_mskaq"]
 [ext_resource type="Texture2D" uid="uid://dqjs0r33axjv1" path="res://Art/TilesetNature.png" id="3_ul81g"]
+[ext_resource type="PackedScene" uid="uid://clx8vnc5jsbvp" path="res://Collectables/goldcup.tscn" id="4_ahhiq"]
 [ext_resource type="PackedScene" uid="uid://bw62b02aemesd" path="res://scenes/scene_trigger.tscn" id="4_ivkv1"]
 [ext_resource type="PackedScene" uid="uid://dnpad8fio0ngo" path="res://Enemies/slimegreen.tscn" id="5_gedqt"]
 [ext_resource type="Script" path="res://GUI/canvas_layer.gd" id="5_mqa1r"]
@@ -861,10 +862,15 @@ texture = ExtResource("3_ul81g")
 11:8/0/texture_origin = Vector2i(0, 16)
 11:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.9375, -8, 4.3125, -8, 5.5, 2.375, 0.375, 6.625, -5.875, 2)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_hy36p"]
+resource_name = "colle"
+scenes/1/scene = ExtResource("4_ahhiq")
+
 [sub_resource type="TileSet" id="TileSet_irdph"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fxyge")
 sources/1 = SubResource("TileSetAtlasSource_a64rt")
+sources/2 = SubResource("TileSetScenesCollectionSource_hy36p")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iabnv"]
 size = Vector2(8, 32.5)
@@ -885,6 +891,8 @@ layer_2/name = "Tree"
 layer_2/y_sort_enabled = true
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(196613, 1179649, 0, 917511, 1179649, 0, 524303, 1179649, 0, 851993, 1179649, 0, 196621, 1179649, 0, 524293, 1179649, 0, 851970, 1179649, 0, 983057, 1179649, 0, 983073, 1179649, 0, 262166, 720897, 8, 393241, 720897, 8, 458775, 720897, 8, 458773, 720897, 8, 131097, 720897, 8, 196637, 720897, 8, 131099, 720897, 8, 524314, 720897, 8, 458781, 720897, 8, 327712, 720897, 8, 131104, 720897, 8, 589855, 720897, 8, 524322, 720897, 8, 327715, 720897, 8, 131106, 720897, 8)
+layer_3/name = "Collectables"
+layer_3/tile_data = PackedInt32Array(131103, 2, 65536, 262170, 2, 65536, 196612, 2, 65536, 720898, 2, 65536, 524296, 2, 65536, 983049, 2, 65536)
 
 [node name="Enemy2" parent="TileMap" instance=ExtResource("9_hc5i3")]
 position = Vector2(544, 73)

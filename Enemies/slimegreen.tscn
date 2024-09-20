@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://dnpad8fio0ngo"]
 
-[ext_resource type="Script" path="res://slimegreen.gd" id="1_qubl8"]
+[ext_resource type="Script" path="res://Enemies/slimegreen.gd" id="1_qubl8"]
 [ext_resource type="Texture2D" uid="uid://ciht05xfw1u3u" path="res://Enemies/Monsters/Slime2/Slime2.png" id="2_70xhx"]
 [ext_resource type="Texture2D" uid="uid://d23vbvb80oxdt" path="res://Art/smokesheet.png" id="3_y68p5"]
 [ext_resource type="Texture2D" uid="uid://b4f0wh30a735i" path="res://Art/healthbarUnder.png" id="4_7jmtx"]

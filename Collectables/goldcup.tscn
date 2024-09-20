@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://clx8vnc5jsbvp"]
+
+[ext_resource type="PackedScene" uid="uid://dai5xu5jvew8f" path="res://Collectables/collectable.tscn" id="1_r6dh2"]
+[ext_resource type="Texture2D" uid="uid://vw4v0guamyfp" path="res://Art/GoldCup.png" id="2_06sca"]
+[ext_resource type="Resource" uid="uid://pphv5mfjx7md" path="res://Inventory/Items/goldcup.tres" id="2_nn2ns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp2sl"]
+resource_local_to_scene = true
+size = Vector2(8, 10)
+
+[node name="Goldcup" instance=ExtResource("1_r6dh2")]
+itemRes = ExtResource("2_nn2ns")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_jp2sl")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_06sca")
