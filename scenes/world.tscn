@@ -1498,6 +1498,7 @@ position = Vector2(-589, 179)
 stream = ExtResource("19_wjohu")
 volume_db = -25.0
 autoplay = true
+parameters/looping = true
 
 [connection signal="closed" from="CanvasLayer/InventoryGUI" to="." method="_on_inventory_gui_closed"]
 [connection signal="opened" from="CanvasLayer/InventoryGUI" to="." method="_on_inventory_gui_opened"]
