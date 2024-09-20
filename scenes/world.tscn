@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://37uh13ramxpu"]
+[gd_scene load_steps=29 format=3 uid="uid://37uh13ramxpu"]
 
 [ext_resource type="PackedScene" uid="uid://cq8mi5uylaexe" path="res://Player/player.tscn" id="1_f0l34"]
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_vbtl3"]
@@ -1360,7 +1360,10 @@ sources/3 = SubResource("TileSetScenesCollectionSource_2r1mv")
 sources/4 = SubResource("TileSetAtlasSource_uu5qv")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx3uf"]
-size = Vector2(8, 34)
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5jim"]
+size = Vector2(9, 30)
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -1472,7 +1475,7 @@ connected_scene = "starter_cave"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(0, 1)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_rx3uf")
 
 [node name="SceneTrigger2" parent="." instance=ExtResource("16_uwjio")]
@@ -1480,10 +1483,8 @@ position = Vector2(17, 276)
 connected_scene = "east_lane"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger2"]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(-13, -4)
-shape = SubResource("RectangleShape2D_rx3uf")
+position = Vector2(-12.5, -4)
+shape = SubResource("RectangleShape2D_i5jim")
 
 [node name="EntranceMarkers" type="Node2D" parent="."]
 position = Vector2(616, 111)
