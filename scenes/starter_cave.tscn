@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfggtritg2r6s"]
+[gd_scene load_steps=15 format=3 uid="uid://bfggtritg2r6s"]
 
 [ext_resource type="Script" path="res://scenes/base_scene.gd" id="1_6ch6n"]
 [ext_resource type="Texture2D" uid="uid://dpmbtn3e7y0bf" path="res://Art/TilesetReliefDetail.png" id="1_yb2at"]
 [ext_resource type="Texture2D" uid="uid://ocmm63e1gfq6" path="res://Art/TilesetHole.png" id="2_m6l72"]
 [ext_resource type="Texture2D" uid="uid://crhm3b4a8yoxh" path="res://Art/TilesetElement.png" id="3_361r4"]
 [ext_resource type="PackedScene" uid="uid://bw62b02aemesd" path="res://scenes/scene_trigger.tscn" id="5_y6pmg"]
+[ext_resource type="Script" path="res://GUI/canvas_layer.gd" id="6_xfqor"]
+[ext_resource type="Script" path="res://Scene/currentscore_label.gd" id="7_nfv8g"]
+[ext_resource type="PackedScene" uid="uid://be43quqnwgl8g" path="res://GUI/hearts_container.tscn" id="8_pn6jn"]
+[ext_resource type="PackedScene" uid="uid://ch2hpk8m4c5yv" path="res://GUI/inventory_gui.tscn" id="9_3w4aj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mxbis"]
 texture = ExtResource("1_yb2at")
@@ -312,3 +316,33 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(-2.5, 1.5)
 shape = SubResource("RectangleShape2D_1fyw7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("6_xfqor")
+
+[node name="scoreLabels" type="StaticBody2D" parent="CanvasLayer"]
+
+[node name="currentscoreLabel" type="RichTextLabel" parent="CanvasLayer/scoreLabels"]
+offset_right = 87.0
+offset_bottom = 25.0
+scale = Vector2(0.7, 0.7)
+text = "Score: 999"
+script = ExtResource("7_nfv8g")
+metadata/_edit_use_anchors_ = true
+
+[node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("8_pn6jn")]
+
+[node name="InventoryGUI" parent="CanvasLayer" instance=ExtResource("9_3w4aj")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = -42.0
+offset_right = 66.5
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
