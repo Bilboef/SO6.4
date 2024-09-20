@@ -7,11 +7,10 @@ signal healthChanged
  
 var speed = 20
 var player_chase = false
-var player = null
 
 
 
-
+@onready var player: Player = $"../../Player"
 @onready var animations = $AnimationPlayer
 @onready var maxHP = 5
 @onready var currentHP = maxHP

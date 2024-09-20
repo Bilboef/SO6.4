@@ -75,8 +75,8 @@ func _physics_process(delta):
 
 func hurtByEnemy(area):
 	currentHealth -=1
-	if currentHealth < 0:
-		currentHealth = maxHealth
+	if currentHealth <= 0:
+		get_tree().change_scene_to_file("res://scenes/game_overscene.tscn")
 		
 	healthChanged.emit(currentHealth)
 	isHurt = true
@@ -93,8 +93,8 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 		area.collect(inventory)
 
 
-		
-		
+
+
 func knockBack(enemyVelocity: Vector2):
 	var knockBackDirection = (enemyVelocity - velocity).normalized()*knockBackPower
 	velocity = knockBackDirection

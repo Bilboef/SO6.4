@@ -1364,6 +1364,22 @@ size = Vector2(8, 34)
 y_sort_enabled = true
 script = ExtResource("1_vbtl3")
 
+[node name="Player" parent="." instance=ExtResource("1_f0l34")]
+position = Vector2(72, 107)
+collision_layer = 11
+knockBackPower = 250
+
+[node name="follow_cam" type="Camera2D" parent="Player" node_paths=PackedStringArray("tilemap", "follow_node")]
+visible = false
+position = Vector2(-1, 1)
+limit_left = 0
+limit_top = 0
+limit_right = 752
+limit_bottom = 320
+script = ExtResource("5_dqq34")
+tilemap = NodePath("../../TileMap")
+follow_node = NodePath("..")
+
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_7133u")
@@ -1385,7 +1401,7 @@ layer_4/tile_data = PackedInt32Array(327718, 65540, 3)
 
 [node name="Enemy" parent="TileMap" instance=ExtResource("14_u7f4j")]
 z_index = 1
-position = Vector2(199, 52)
+position = Vector2(292, 76)
 collision_layer = 3
 collision_mask = 3
 
@@ -1466,22 +1482,6 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(-13, -4)
 shape = SubResource("RectangleShape2D_rx3uf")
-
-[node name="Player" parent="." instance=ExtResource("1_f0l34")]
-position = Vector2(72, 107)
-collision_layer = 11
-knockBackPower = 250
-
-[node name="follow_cam" type="Camera2D" parent="Player" node_paths=PackedStringArray("tilemap", "follow_node")]
-visible = false
-position = Vector2(-1, 1)
-limit_left = 0
-limit_top = 0
-limit_right = 752
-limit_bottom = 320
-script = ExtResource("5_dqq34")
-tilemap = NodePath("../../TileMap")
-follow_node = NodePath("..")
 
 [node name="EntranceMarkers" type="Node2D" parent="."]
 position = Vector2(616, 111)

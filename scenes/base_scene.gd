@@ -2,7 +2,7 @@ class_name BaseScene extends Node
 
 @onready var player: Player = $Player 
 @onready var entrance_markers: Node2D = $EntranceMarkers
-
+@onready var heartsContainer = $CanvasLayer/heartsContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,6 +14,9 @@ func _ready() -> void:
 		add_child(player)
 		
 	position_player()
+	heartsContainer.setMaxHearts(player.maxHealth)
+	heartsContainer.updateHearts(player.currentHealth)
+	player.healthChanged.connect(heartsContainer.updateHearts)
 
 func position_player() -> void:
 	var last_scene = scene_manager.last_scene_name.to_lower().replace('_','').replace(' ','')
