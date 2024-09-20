@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2u5rmou2kimp"]
+[gd_scene load_steps=3 format=3 uid="uid://c2u5rmou2kimp"]
 
 [ext_resource type="Script" path="res://gameoverscene.gd" id="1_3vxl7"]
+[ext_resource type="AudioStream" uid="uid://bfrt3uw74wepb" path="res://Art/26 - Lost Village.ogg" id="2_lpq2c"]
 
 [node name="game_overscene" type="Node2D"]
 
@@ -28,3 +29,7 @@ offset_right = 193.0
 offset_bottom = 104.0
 text = "End score: 999"
 script = ExtResource("1_3vxl7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lpq2c")
+volume_db = -25.0
