@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
-class_name SlimeBlue
+class_name SlimeGreen
 
-signal healthChanged
+signal healthChanged_green
 
 @export var speed = 20
 @export var limit = 0.5
 @export var endPoint: Marker2D
-@export var pointkill = 1
+@export var pointkill = 2
 
-@onready var maxHP = 2
+@onready var maxHP = 3
 @onready var currentHP = maxHP
 @onready var animations = $AnimationPlayer
 @onready var hurtTimer = $hurtTimer
@@ -25,7 +25,7 @@ var isDead: bool = false
 func _ready():
 	startPosition = position
 	endPosition = endPoint.global_position
-	healthChanged.emit(currentHP)
+	healthChanged_green.emit(currentHP)
 	
 
 func changeDirection():
@@ -78,7 +78,7 @@ func disable():
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area == $hitBox: return
 	currentHP -= 1
-	healthChanged.emit(currentHP)
+	healthChanged_green.emit(currentHP)
 	isHurt = true
 	if isHurt:
 		hurtTimer.start()

@@ -1,11 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dyqr8byc2tycl"]
+[gd_scene load_steps=17 format=3 uid="uid://dnpad8fio0ngo"]
 
-[ext_resource type="Script" path="res://Enemies/slime_blue.gd" id="1_1d6ns"]
-[ext_resource type="Texture2D" uid="uid://boyj826gnpkpd" path="res://Art/Slime.png" id="1_vi5ap"]
-[ext_resource type="Texture2D" uid="uid://d23vbvb80oxdt" path="res://Art/smokesheet.png" id="3_m8nm4"]
-[ext_resource type="Texture2D" uid="uid://b4f0wh30a735i" path="res://Art/healthbarUnder.png" id="4_r2xq7"]
-[ext_resource type="Texture2D" uid="uid://dhb3vexc316n" path="res://Art/healthbarProgress.png" id="5_6pek8"]
-[ext_resource type="Script" path="res://GUI/healthBar.gd" id="6_rnk17"]
+[ext_resource type="Script" path="res://slimegreen.gd" id="1_qubl8"]
+[ext_resource type="Texture2D" uid="uid://ciht05xfw1u3u" path="res://Enemies/Monsters/Slime2/Slime2.png" id="2_70xhx"]
+[ext_resource type="Texture2D" uid="uid://d23vbvb80oxdt" path="res://Art/smokesheet.png" id="3_y68p5"]
+[ext_resource type="Texture2D" uid="uid://b4f0wh30a735i" path="res://Art/healthbarUnder.png" id="4_7jmtx"]
+[ext_resource type="Texture2D" uid="uid://dhb3vexc316n" path="res://Art/healthbarProgress.png" id="5_he5fy"]
+[ext_resource type="Script" path="res://Enemies/texture_progress_bar_green.gd" id="6_e11xe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_byphl"]
 radius = 4.0
@@ -314,11 +314,12 @@ height = 16.0
 radius = 7.0
 height = 20.0
 
-[node name="Slime" type="CharacterBody2D"]
+[node name="Slimegreen" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_1d6ns")
+script = ExtResource("1_qubl8")
+speed = 35
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
@@ -327,7 +328,7 @@ shape = SubResource("CapsuleShape2D_byphl")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -7)
-texture = ExtResource("1_vi5ap")
+texture = ExtResource("2_70xhx")
 hframes = 4
 vframes = 4
 
@@ -355,13 +356,13 @@ shape = SubResource("CapsuleShape2D_i2dcn")
 [node name="deathEffect" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, -11)
-texture = ExtResource("3_m8nm4")
+texture = ExtResource("3_y68p5")
 hframes = 6
 
 [node name="hurtTimer" type="Timer" parent="."]
 wait_time = 0.2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("slime")]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("slime_green")]
 offset_left = -15.0
 offset_top = -27.0
 offset_right = 15.0
@@ -371,9 +372,9 @@ stretch_margin_left = 4
 stretch_margin_top = 4
 stretch_margin_right = 4
 stretch_margin_bottom = 4
-texture_under = ExtResource("4_r2xq7")
-texture_progress = ExtResource("5_6pek8")
-script = ExtResource("6_rnk17")
-slime = NodePath("..")
+texture_under = ExtResource("4_7jmtx")
+texture_progress = ExtResource("5_he5fy")
+script = ExtResource("6_e11xe")
+slime_green = NodePath("..")
 
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
